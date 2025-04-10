@@ -21,6 +21,6 @@ package edu.rit.swen352.tdd;
 public class MyList<T> {
 
     public MyList() {
-        assert false : "NYI";
+
     }
 }
