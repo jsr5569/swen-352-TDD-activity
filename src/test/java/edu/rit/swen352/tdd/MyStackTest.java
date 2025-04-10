@@ -9,8 +9,14 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class MyStackTest {
     @Test
-    public void TestConstructorWithoutCap() {
+    public void TestConstructor() {
         MyStack stack = new MyStack<>();
         assertNotNull(stack);
+    }
+
+    @Test
+    public void TestConstructorDefaultCapacity() {
+        MyStack stack = new MyStack<>();
+        assertEquals(16, stack.capacity);
     }
 }

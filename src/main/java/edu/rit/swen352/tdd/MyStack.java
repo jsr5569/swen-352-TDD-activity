@@ -19,6 +19,9 @@ import java.util.List;
  * @param <T> the type of elements in the stack.
  */
 public class MyStack<T> {
+
+    int capacity;
+
     public MyStack() {
         assert true;
     }
