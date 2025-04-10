@@ -19,4 +19,8 @@ package edu.rit.swen352.tdd;
  * @param <T> the type of elements in the list.
  */
 public class MyList<T> {
+
+    public MyList() {
+        assert false : "NYI";
+    }
 }
