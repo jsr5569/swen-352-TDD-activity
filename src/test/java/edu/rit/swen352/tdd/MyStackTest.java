@@ -19,4 +19,10 @@ class MyStackTest {
         MyStack stack = new MyStack<>();
         assertEquals(16, stack.capacity);
     }
+
+    @Test
+    public void TestConstructorSpecificCapacity() {
+        MyStack stack = new MyStack<>(10);
+        assertEquals(10, stack.capacity);
+    }
 }
