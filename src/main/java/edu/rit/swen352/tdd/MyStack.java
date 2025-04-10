@@ -25,4 +25,8 @@ public class MyStack<T> {
     public MyStack() {
         this.capacity = 16;
     }
+
+    public MyStack(int capacity) {
+        this.capacity = capacity;
+    }
 }
