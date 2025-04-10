@@ -20,7 +20,17 @@ package edu.rit.swen352.tdd;
  */
 public class MyList<T> {
 
+    private T[] list;
+
     public MyList(T... elements) {
-        assert false : "NYI";
+        try
+        {
+            list = (T[]) new Object[elements.length];
+            System.arraycopy(elements, 0, list, 0, elements.length);
+        }
+        catch(Exception e)
+        {
+            System.err.println(e.getMessage());
+        }
     }
 }

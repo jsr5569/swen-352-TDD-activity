@@ -16,13 +16,17 @@ class MyListTest {
     @DisplayName("No Initial Elements")
     void noInitialElements() {
         MyList<String> list = new MyList<String>();
-        assertNotNull(list);
+        assertAll("group assertions",
+                () ->  assertNotNull(list),
+                () -> assertEquals(MyList.class.getSimpleName(), list.getClass().getSimpleName()));
     }
 
     @Test
     @DisplayName("Initial Elements")
     void initialElements() {
         MyList<String> list = new MyList<String>("string1", "string2");
-        assertNotNull(list);
+        assertAll("group assertions",
+                () ->  assertNotNull(list),
+                () -> assertEquals(MyList.class.getSimpleName(), list.getClass().getSimpleName()));
     }
 }
