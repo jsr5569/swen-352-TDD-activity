@@ -20,6 +20,6 @@ import java.util.List;
  */
 public class MyStack<T> {
     public MyStack() {
-        assert false;
+        assert true;
     }
 }
