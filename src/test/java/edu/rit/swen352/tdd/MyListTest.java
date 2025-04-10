@@ -13,9 +13,16 @@ import static org.junit.jupiter.api.Assertions.*;
 class MyListTest {
 
     @Test
-    @DisplayName("no Initial Elements")
+    @DisplayName("No Initial Elements")
     void noInitialElements() {
         MyList<String> list = new MyList<String>();
+        assertNotNull(list);
+    }
+
+    @Test
+    @DisplayName("Initial Elements")
+    void initialElements() {
+        MyList<String> list = new MyList<String>("string1", "string2");
         assertNotNull(list);
     }
 }
