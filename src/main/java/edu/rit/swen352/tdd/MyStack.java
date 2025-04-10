@@ -1,5 +1,7 @@
 package edu.rit.swen352.tdd;
 
+import java.util.List;
+
 /**
  * MyStack is a fixed-size, LIFO (last-in-first-out) stack.
  * @see <a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)">Stack ADT</a>
@@ -17,4 +19,7 @@ package edu.rit.swen352.tdd;
  * @param <T> the type of elements in the stack.
  */
 public class MyStack<T> {
+    public MyStack() {
+        assert false;
+    }
 }
