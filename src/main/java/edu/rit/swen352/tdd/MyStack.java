@@ -23,6 +23,6 @@ public class MyStack<T> {
     int capacity;
 
     public MyStack() {
-        assert true;
+        this.capacity = 16;
     }
 }
