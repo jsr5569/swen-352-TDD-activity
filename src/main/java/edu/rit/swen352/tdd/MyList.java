@@ -2,6 +2,7 @@ package edu.rit.swen352.tdd;
 
 import java.util.Arrays;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 /**
@@ -26,11 +27,13 @@ public class MyList<T> {
 
     private T[] list;
 
+    @SafeVarargs
     public MyList(T... elements) {
         try
         {
-            list = (T[]) new Object[elements.length];
-            System.arraycopy(elements, 0, list, 0, elements.length);
+            Object[] filteredElements = Arrays.stream(elements).filter(Objects::nonNull).toArray();
+            list = (T[]) new Object[filteredElements.length];
+            System.arraycopy(elements, 0, list, 0, filteredElements.length);
         }
         catch(Exception e)
         {
@@ -38,14 +41,27 @@ public class MyList<T> {
         }
     }
 
+    /**
+     * Returns the size of the MyList
+     * @return size
+     */
     public int size()
     {
         return list.length;
     }
 
+    /**
+     * Adds an element to the MyList, doing nothing if a duplicate element
+     * @param element The element to add
+     * @return The updated MyList
+     */
     public MyList<T> add(T element)
     {
         if(Arrays.asList(this.list).contains(element))
+        {
+            return this;
+        }
+        if(element == null)
         {
             return this;
         }
@@ -55,6 +71,11 @@ public class MyList<T> {
         return new MyList<T>(newList);
     }
 
+    /**
+     * Removes an element by reference
+     * @param element the element to remove
+     * @return The updated MyList
+     */
     public MyList<T> remove(T element)
     {
         if(!Arrays.asList(this.list).contains(element))
@@ -65,6 +86,11 @@ public class MyList<T> {
         return new MyList<>(newList);
     }
 
+    /**
+     * Gets an element by index
+     * @param index The index of the element
+     * @return The element
+     */
     public T get(int index)
     {
         if(index < 0 || index >= list.length)
@@ -74,11 +100,19 @@ public class MyList<T> {
         return this.list[index];
     }
 
+    /**
+     * Checks if the MyList is empty
+     * @return true if empty; false otherwise
+     */
     public boolean isEmpty()
     {
         return this.list.length == 0;
     }
 
+    /**
+     * Iterates the MyList and performs the consumer action on each element
+     * @param action The consumer function
+     */
     public void forEach(Consumer<? super T> action)
     {
         for(T element : list)

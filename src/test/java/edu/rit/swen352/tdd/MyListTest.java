@@ -4,7 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.UpperCase;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
@@ -30,9 +29,14 @@ class MyListTest {
     @DisplayName("Create With Initial Elements")
     void initialElements() {
         MyList<String> list = new MyList<String>("string1", "string2");
+        MyList<String> nullList1 = new MyList<>((String) null);
+        MyList<String> nullList2 = new MyList<>(null,"null", null);
         assertAll("constructor assertions",
                 () ->  assertNotNull(list),
-                () -> assertEquals(MyList.class.getSimpleName(), list.getClass().getSimpleName()));
+                () -> assertEquals(MyList.class.getSimpleName(), list.getClass().getSimpleName()),
+                () -> assertEquals(2, list.size()),
+                () -> assertEquals(0, nullList1.size()),
+                () -> assertEquals(1, nullList2.size()));
     }
 
     @Test
@@ -55,7 +59,9 @@ class MyListTest {
         MyList<String> list2 = new MyList<>("string1", "string2", "string3");
         assertAll("Add New Element Assertions",
                 () -> assertEquals(1, list1.add(1.1).size()),
-                () -> assertEquals(4, list2.add("newString").size()));
+                () -> assertEquals(4, list2.add("newString").size()),
+                () -> assertEquals(3, list2.add(null).size())
+                );
     }
 
     @Test
@@ -82,7 +88,8 @@ class MyListTest {
     {
         MyList<String> list = new MyList<>("string1", "string2", "string3");
         assertAll("Remove Element Assertions",
-                () -> assertThrows(NoSuchElementException.class, () -> list.remove("string5")));
+                () -> assertThrows(NoSuchElementException.class, () -> list.remove("string5")),
+                () -> assertThrows(NoSuchElementException.class, () -> list.remove(null)));
     }
 
     @Test
@@ -128,5 +135,4 @@ class MyListTest {
                 () -> assertEquals(list.size(), newList.size()),
                 () -> assertEquals("PEAR",newList.get(2)));
     }
-
 }
