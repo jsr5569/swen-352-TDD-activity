@@ -38,4 +38,9 @@ public class MyList<T> {
     {
         return list.length;
     }
+
+    public MyList<T> add(T element)
+    {
+        return null;
+    }
 }
