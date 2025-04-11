@@ -31,6 +31,10 @@ public class SimpleBankAccount {
     }
 
     public double withdraw(double amount){
+        if(amount < 0 || Double.isNaN(amount) || (balance - amount) < 0)
+        {
+            throw new IllegalArgumentException("Invalid amount");
+        }
         balance = roundToTwoDecimals(this.balance - amount);
         return this.balance;
     }
