@@ -11,7 +11,12 @@ public class SimpleBankAccount {
     public SimpleBankAccount(double initialBalance) {
        this.balance = initialBalance;
     }
+
     public double getBalance() {
         return this.balance;
+    }
+
+    public void deposit(double amount) {
+        assert false: "NYI";
     }
 }

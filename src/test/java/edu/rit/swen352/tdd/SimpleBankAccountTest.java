@@ -36,4 +36,16 @@ class SimpleBankAccountTest {
                 () -> assertEquals(100.99, bankAccount2.getBalance()),
                 () -> assertEquals(0, bankAccount1.getBalance()));
     }
+
+    @Test
+    @DisplayName("Deposit An Amount Into The Account")
+    void depositAmount() {
+        SimpleBankAccount bankAccount1 = new SimpleBankAccount();
+        bankAccount1.deposit(100);
+        SimpleBankAccount bankAccount2 = new SimpleBankAccount(100.99);
+        bankAccount2.deposit(100.01);
+        assertAll("Constructor Assertions",
+                () -> assertEquals(201, bankAccount2.getBalance()),
+                () -> assertEquals(100.00, bankAccount1.getBalance()));
+    }
 }
