@@ -27,7 +27,7 @@ public class SimpleBankAccount {
         {
             throw new IllegalArgumentException("Invalid amount");
         }
-        this.balance += amount;
+        balance = roundToTwoDecimals(balance + amount);
     }
 
     public double withdraw(double amount){
