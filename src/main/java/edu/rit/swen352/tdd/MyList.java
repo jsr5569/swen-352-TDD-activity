@@ -43,6 +43,10 @@ public class MyList<T> {
 
     public MyList<T> add(T element)
     {
+        if(Arrays.asList(this.list).contains(element))
+        {
+            return this;
+        }
         T[] newList = (T[]) new Object[list.length + 1];
         System.arraycopy(list, 0, newList, 0, list.length);
         newList[list.length] = element;
