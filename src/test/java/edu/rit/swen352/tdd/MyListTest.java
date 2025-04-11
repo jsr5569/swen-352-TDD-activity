@@ -5,6 +5,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -69,6 +71,15 @@ class MyListTest {
         MyList<String> list = new MyList<>("string1", "string2", "string3");
         assertAll("Add New Element Assertions",
                 () -> assertEquals(2, list.remove("string2").size()));
+    }
+
+    @Test
+    @DisplayName("Remove Nonexistent Element")
+    void removeNonexistentElement()
+    {
+        MyList<String> list = new MyList<>("string1", "string2", "string3");
+        assertAll("Add New Element Assertions",
+                () -> assertThrows(NoSuchElementException.class, () -> list.remove("string5")));
     }
 
 }
