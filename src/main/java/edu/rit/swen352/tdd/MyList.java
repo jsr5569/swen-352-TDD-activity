@@ -1,8 +1,8 @@
 package edu.rit.swen352.tdd;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
+import java.util.function.Consumer;
 
 /**
  * MyList is a flexible-sized sequence of elements with no gaps.
@@ -77,5 +77,11 @@ public class MyList<T> {
     public boolean isEmpty()
     {
         return this.list.length == 0;
+    }
+
+    public MyList<T> forEach(Consumer<? super T> action)
+    {
+        assert false: "NYI";
+        return null;
     }
 }

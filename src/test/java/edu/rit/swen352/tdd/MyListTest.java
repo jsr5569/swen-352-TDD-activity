@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.NoSuchElementException;
+import java.util.function.Consumer;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -111,6 +112,16 @@ class MyListTest {
                 () -> assertTrue(list1.isEmpty()),
                 () -> assertFalse(list2.isEmpty())
         );
+    }
+
+    @Test
+    @DisplayName("ForEach")
+    void forEach()
+    {
+        MyList<String> list = new MyList<>("string1", "string2", "string3");
+        Consumer<String> allUpperCase = String::toUpperCase;
+        assertAll("ForEach Assertions",
+                () -> assertEquals("STRING2",list.forEach(allUpperCase).get(1)));
     }
 
 }
