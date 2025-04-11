@@ -36,6 +36,6 @@ public class MyList<T> {
 
     public int size()
     {
-        return -1;
+        return list.length;
     }
 }
