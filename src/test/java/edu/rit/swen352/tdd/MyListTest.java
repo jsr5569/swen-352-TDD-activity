@@ -48,11 +48,9 @@ class MyListTest {
     {
         MyList<Double> list1 = new MyList<>();
         MyList<String> list2 = new MyList<>("string1", "string2", "string3");
-        list1.add(1.1);
-        list2.add("newString");
         assertAll("Add New Element Assertions",
-                () -> assertEquals(1, list1.size()),
-                () -> assertEquals(4, list2.size()));
+                () -> assertEquals(1, list1.add(1.1).size()),
+                () -> assertEquals(4, list2.add("newString").size()));
     }
 
 }
