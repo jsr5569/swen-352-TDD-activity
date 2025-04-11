@@ -53,4 +53,13 @@ class MyListTest {
                 () -> assertEquals(4, list2.add("newString").size()));
     }
 
+    @Test
+    @DisplayName("Add Duplicate Element")
+    void addDuplicateElement()
+    {
+        MyList<String> list = new MyList<>("string1", "string2", "string3");
+        assertAll("Add New Element Assertions",
+                () -> assertEquals(3, list.add("string2").size()));
+    }
+
 }
