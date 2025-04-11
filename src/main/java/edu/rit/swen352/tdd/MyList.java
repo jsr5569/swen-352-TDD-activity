@@ -76,7 +76,6 @@ public class MyList<T> {
 
     public boolean isEmpty()
     {
-        assert false: "NYI";
-        return false;
+        return this.list.length == 0;
     }
 }
