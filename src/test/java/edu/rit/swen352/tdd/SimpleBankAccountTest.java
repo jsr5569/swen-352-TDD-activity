@@ -26,4 +26,14 @@ class SimpleBankAccountTest {
                 () -> assertNotNull(bankAccount),
                 () -> assertEquals(SimpleBankAccount.class.getSimpleName(), bankAccount.getClass().getSimpleName()));
     }
+
+    @Test
+    @DisplayName("Get Account Balance")
+    void getAccountBalance() {
+        SimpleBankAccount bankAccount1 = new SimpleBankAccount();
+        SimpleBankAccount bankAccount2 = new SimpleBankAccount(100.99);
+        assertAll("Constructor Assertions",
+                () -> assertEquals(100.99, bankAccount2.getBalance()),
+                () -> assertEquals(0, bankAccount1.getBalance()));
+    }
 }

@@ -11,4 +11,8 @@ public class SimpleBankAccount {
     public SimpleBankAccount(double initialBalance) {
        balance = initialBalance;
     }
+    public double getBalance() {
+        assert false: "NYI";
+        return -1.0;
+    }
 }
