@@ -1,6 +1,8 @@
 package edu.rit.swen352.tdd;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 /**
  * MyList is a flexible-sized sequence of elements with no gaps.
@@ -55,6 +57,10 @@ public class MyList<T> {
 
     public MyList<T> remove(T element)
     {
+        if(!Arrays.asList(this.list).contains(element))
+        {
+            throw new NoSuchElementException("Nonexistent Element!");
+        }
         T[] newList = (T[]) Arrays.stream(this.list).filter(e -> !e.equals(element)).toArray();
         return new MyList<>(newList);
     }
