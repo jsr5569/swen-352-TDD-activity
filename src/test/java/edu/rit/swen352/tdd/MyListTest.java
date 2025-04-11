@@ -4,7 +4,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.UpperCase;
 
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.function.Consumer;
 
@@ -118,10 +120,13 @@ class MyListTest {
     @DisplayName("ForEach")
     void forEach()
     {
-        MyList<String> list = new MyList<>("string1", "string2", "string3");
-        Consumer<String> allUpperCase = String::toUpperCase;
+        MyList<String> list = new MyList<>("apple", "banana", "pear");
+        ArrayList<String> newList = new ArrayList<>();
+        Consumer<String> add = string -> newList.add(string.toUpperCase());
+        list.forEach(add);
         assertAll("ForEach Assertions",
-                () -> assertEquals("STRING2",list.forEach(allUpperCase).get(1)));
+                () -> assertEquals(list.size(), newList.size()),
+                () -> assertEquals("PEAR",newList.get(2)));
     }
 
 }

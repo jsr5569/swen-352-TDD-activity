@@ -79,9 +79,11 @@ public class MyList<T> {
         return this.list.length == 0;
     }
 
-    public MyList<T> forEach(Consumer<? super T> action)
+    public void forEach(Consumer<? super T> action)
     {
-        assert false: "NYI";
-        return null;
+        for(T element : list)
+        {
+            action.accept(element);
+        }
     }
 }
