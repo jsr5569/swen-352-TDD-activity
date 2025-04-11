@@ -64,4 +64,9 @@ public class MyList<T> {
         T[] newList = (T[]) Arrays.stream(this.list).filter(e -> !e.equals(element)).toArray();
         return new MyList<>(newList);
     }
+
+    public T get(int index)
+    {
+        return null;
+    }
 }

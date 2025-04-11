@@ -60,7 +60,7 @@ class MyListTest {
     void addDuplicateElement()
     {
         MyList<String> list = new MyList<>("string1", "string2", "string3");
-        assertAll("Add New Element Assertions",
+        assertAll("Add Duplicate Element Assertions",
                 () -> assertEquals(3, list.add("string2").size()));
     }
 
@@ -69,7 +69,7 @@ class MyListTest {
     void removeElement()
     {
         MyList<String> list = new MyList<>("string1", "string2", "string3");
-        assertAll("Add New Element Assertions",
+        assertAll("Remove Element Assertions",
                 () -> assertEquals(2, list.remove("string2").size()));
     }
 
@@ -78,8 +78,17 @@ class MyListTest {
     void removeNonexistentElement()
     {
         MyList<String> list = new MyList<>("string1", "string2", "string3");
-        assertAll("Add New Element Assertions",
+        assertAll("Remove Element Assertions",
                 () -> assertThrows(NoSuchElementException.class, () -> list.remove("string5")));
+    }
+
+    @Test
+    @DisplayName("Get Element")
+    void getElement()
+    {
+        MyList<String> list = new MyList<>("string1", "string2", "string3");
+        assertAll("Get Element Assertions",
+                () -> assertEquals("String3",list.get(2)));
     }
 
 }
