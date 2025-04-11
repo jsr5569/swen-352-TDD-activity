@@ -13,20 +13,32 @@ import static org.junit.jupiter.api.Assertions.*;
 class MyListTest {
 
     @Test
-    @DisplayName("No Initial Elements")
+    @DisplayName("Create With No Initial Elements")
     void noInitialElements() {
         MyList<String> list = new MyList<String>();
-        assertAll("group assertions",
+        assertAll("constructor assertions",
                 () ->  assertNotNull(list),
                 () -> assertEquals(MyList.class.getSimpleName(), list.getClass().getSimpleName()));
     }
 
     @Test
-    @DisplayName("Initial Elements")
+    @DisplayName("Create With Initial Elements")
     void initialElements() {
         MyList<String> list = new MyList<String>("string1", "string2");
-        assertAll("group assertions",
+        assertAll("constructor assertions",
                 () ->  assertNotNull(list),
                 () -> assertEquals(MyList.class.getSimpleName(), list.getClass().getSimpleName()));
+    }
+
+    @Test
+    @DisplayName("Get List Size")
+    void getListSize()
+    {
+        MyList<Integer> list1 = new MyList<>();
+        MyList<String> list2 = new MyList<>("string1", "string2", "string3");
+        assertAll("Size Assertions",
+                () -> assertEquals(0,list1.size()),
+                () -> assertEquals(3,list2.size())
+        );
     }
 }

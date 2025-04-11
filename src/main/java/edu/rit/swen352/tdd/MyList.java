@@ -33,4 +33,9 @@ public class MyList<T> {
             System.err.println(e.getMessage());
         }
     }
+
+    public int size()
+    {
+        return -1;
+    }
 }
