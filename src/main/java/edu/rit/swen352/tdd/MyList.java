@@ -67,6 +67,6 @@ public class MyList<T> {
 
     public T get(int index)
     {
-        return null;
+        return this.list[index];
     }
 }

@@ -88,7 +88,7 @@ class MyListTest {
     {
         MyList<String> list = new MyList<>("string1", "string2", "string3");
         assertAll("Get Element Assertions",
-                () -> assertEquals("String3",list.get(2)));
+                () -> assertEquals("string3",list.get(2)));
     }
 
 }
