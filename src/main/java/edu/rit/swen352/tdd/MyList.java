@@ -52,4 +52,9 @@ public class MyList<T> {
         newList[list.length] = element;
         return new MyList<T>(newList);
     }
+
+    public MyList<T> remove(T element)
+    {
+        return null;
+    }
 }

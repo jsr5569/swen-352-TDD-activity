@@ -62,4 +62,13 @@ class MyListTest {
                 () -> assertEquals(3, list.add("string2").size()));
     }
 
+    @Test
+    @DisplayName("Remove Element")
+    void removeElement()
+    {
+        MyList<String> list = new MyList<>("string1", "string2", "string3");
+        assertAll("Add New Element Assertions",
+                () -> assertEquals(2, list.remove("string2").size()));
+    }
+
 }
