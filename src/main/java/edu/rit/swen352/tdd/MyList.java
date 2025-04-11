@@ -55,6 +55,7 @@ public class MyList<T> {
 
     public MyList<T> remove(T element)
     {
-        return null;
+        T[] newList = (T[]) Arrays.stream(this.list).filter(e -> !e.equals(element)).toArray();
+        return new MyList<>(newList);
     }
 }
