@@ -58,4 +58,16 @@ class SimpleBankAccountTest {
                 () -> assertThrows(IllegalArgumentException.class, () -> bankAccount.deposit(Double.NaN)),
                 () -> assertThrows(IllegalArgumentException.class, () -> bankAccount.deposit(Double.MAX_VALUE)));
     }
+
+    @Test
+    @DisplayName("Withdraw An Amount From The Account")
+    void withdrawAmount() {
+        SimpleBankAccount bankAccount = new SimpleBankAccount(100.99);
+        int remaining1 = bankAccount.withdraw(100);
+        int remaining2 = bankAccount.withdraw(bankAccount.getBalance());
+        assertAll("Withdraw Assertions",
+                () -> assertEquals(0.99, remaining1),
+                () -> assertEquals(0, remaining2));
+
+    }
 }

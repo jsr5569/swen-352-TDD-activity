@@ -27,4 +27,9 @@ public class SimpleBankAccount {
         }
         this.balance += amount;
     }
+
+    public int withdraw(double amount){
+        assert false: "NYI";
+        return -1;
+    }
 }
