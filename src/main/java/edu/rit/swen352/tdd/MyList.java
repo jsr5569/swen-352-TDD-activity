@@ -73,4 +73,10 @@ public class MyList<T> {
         }
         return this.list[index];
     }
+
+    public boolean isEmpty()
+    {
+        assert false: "NYI";
+        return false;
+    }
 }

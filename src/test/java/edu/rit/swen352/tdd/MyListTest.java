@@ -101,4 +101,16 @@ class MyListTest {
                 () -> assertThrows(NoSuchElementException.class,() -> list.get(-1)));
     }
 
+    @Test
+    @DisplayName("isEmpty")
+    void isEmptyMyList()
+    {
+        MyList<Integer> list1 = new MyList<>();
+        MyList<String> list2 = new MyList<>("string1", "string2", "string3");
+        assertAll("Get Element Assertions",
+                () -> assertTrue(list1.isEmpty()),
+                () -> assertFalse(list2.isEmpty())
+        );
+    }
+
 }
