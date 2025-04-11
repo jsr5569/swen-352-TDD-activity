@@ -48,4 +48,14 @@ class SimpleBankAccountTest {
                 () -> assertEquals(201, bankAccount2.getBalance()),
                 () -> assertEquals(100.00, bankAccount1.getBalance()));
     }
+
+    @Test
+    @DisplayName("Deposit An Invalid Amount Into The Account")
+    void depositInvalidAmount() {
+        SimpleBankAccount bankAccount = new SimpleBankAccount(1);
+        assertAll("Constructor Assertions",
+                () -> assertThrows(Exception.class, () -> bankAccount.deposit(-1.5)),
+                () -> assertThrows(Exception.class, () -> bankAccount.deposit(Double.NaN)),
+                () -> assertThrows(Exception.class, () -> bankAccount.deposit(Double.MAX_VALUE)));
+    }
 }
