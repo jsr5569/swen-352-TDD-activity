@@ -17,6 +17,6 @@ public class SimpleBankAccount {
     }
 
     public void deposit(double amount) {
-        assert false: "NYI";
+        this.balance += amount;
     }
 }
