@@ -9,6 +9,6 @@ public class SimpleBankAccount {
     }
 
     public SimpleBankAccount(double initialBalance) {
-       assert false: "NYI";
+       balance = initialBalance;
     }
 }
