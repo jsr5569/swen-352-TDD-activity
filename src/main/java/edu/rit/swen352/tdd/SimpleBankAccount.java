@@ -5,6 +5,6 @@ public class SimpleBankAccount {
     private static double balance;
 
     public SimpleBankAccount() {
-        assert false: "NYI";
+        balance = 0;
     }
 }
