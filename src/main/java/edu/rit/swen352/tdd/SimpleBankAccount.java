@@ -1,5 +1,7 @@
 package edu.rit.swen352.tdd;
 
+import static java.lang.Math.round;
+
 public class SimpleBankAccount {
 
     private double balance;
@@ -28,8 +30,12 @@ public class SimpleBankAccount {
         this.balance += amount;
     }
 
-    public int withdraw(double amount){
-        assert false: "NYI";
-        return -1;
+    public double withdraw(double amount){
+        balance = roundToTwoDecimals(this.balance - amount);
+        return this.balance;
+    }
+
+    private static double roundToTwoDecimals(double value) {
+        return Math.round(value * 100.0) / 100.0;
     }
 }
