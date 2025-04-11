@@ -32,7 +32,7 @@ class SimpleBankAccountTest {
     void getAccountBalance() {
         SimpleBankAccount bankAccount1 = new SimpleBankAccount();
         SimpleBankAccount bankAccount2 = new SimpleBankAccount(100.99);
-        assertAll("Constructor Assertions",
+        assertAll("Get Balance Assertions",
                 () -> assertEquals(100.99, bankAccount2.getBalance()),
                 () -> assertEquals(0, bankAccount1.getBalance()));
     }
@@ -44,7 +44,7 @@ class SimpleBankAccountTest {
         bankAccount1.deposit(100);
         SimpleBankAccount bankAccount2 = new SimpleBankAccount(100.99);
         bankAccount2.deposit(100.01);
-        assertAll("Constructor Assertions",
+        assertAll("Deposit Assertions",
                 () -> assertEquals(201, bankAccount2.getBalance()),
                 () -> assertEquals(100.00, bankAccount1.getBalance()));
     }
@@ -52,10 +52,10 @@ class SimpleBankAccountTest {
     @Test
     @DisplayName("Deposit An Invalid Amount Into The Account")
     void depositInvalidAmount() {
-        SimpleBankAccount bankAccount = new SimpleBankAccount(1);
-        assertAll("Constructor Assertions",
-                () -> assertThrows(Exception.class, () -> bankAccount.deposit(-1.5)),
-                () -> assertThrows(Exception.class, () -> bankAccount.deposit(Double.NaN)),
-                () -> assertThrows(Exception.class, () -> bankAccount.deposit(Double.MAX_VALUE)));
+        SimpleBankAccount bankAccount = new SimpleBankAccount(Double.MAX_VALUE);
+        assertAll("Deposit Assertions",
+                () -> assertThrows(IllegalArgumentException.class, () -> bankAccount.deposit(-1.5)),
+                () -> assertThrows(IllegalArgumentException.class, () -> bankAccount.deposit(Double.NaN)),
+                () -> assertThrows(IllegalArgumentException.class, () -> bankAccount.deposit(Double.MAX_VALUE)));
     }
 }
