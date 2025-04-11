@@ -70,4 +70,14 @@ class SimpleBankAccountTest {
                 () -> assertEquals(0, remaining2));
 
     }
+
+    @Test
+    @DisplayName("Withdraw An Invalid Amount From The Account")
+    void withdrawInvalidAmount() {
+        SimpleBankAccount bankAccount = new SimpleBankAccount(100);
+        assertAll("Deposit Assertions",
+                () -> assertThrows(IllegalArgumentException.class, () -> bankAccount.withdraw(-1.5)),
+                () -> assertThrows(IllegalArgumentException.class, () -> bankAccount.withdraw(Double.NaN)),
+                () -> assertThrows(IllegalArgumentException.class, () -> bankAccount.withdraw(200)));
+    }
 }
