@@ -97,7 +97,8 @@ class MyListTest {
     {
         MyList<String> list = new MyList<>("string1", "string2", "string3");
         assertAll("Get Element Assertions",
-                () -> assertThrows(NoSuchElementException.class,() -> list.get(5)));
+                () -> assertThrows(NoSuchElementException.class,() -> list.get(5)),
+                () -> assertThrows(NoSuchElementException.class,() -> list.get(-1)));
     }
 
 }

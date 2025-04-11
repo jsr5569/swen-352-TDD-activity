@@ -67,6 +67,10 @@ public class MyList<T> {
 
     public T get(int index)
     {
+        if(index < 0 || index >= list.length)
+        {
+            throw new NoSuchElementException("Index out of bounds!");
+        }
         return this.list[index];
     }
 }
