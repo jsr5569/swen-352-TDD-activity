@@ -27,6 +27,11 @@ public class Flight {
     private HashMap<String, Integer> passenger_names;
 
     public Flight(String flight_num, String flight_origin, String flight_destination, int num_total_seats){
-        assert false: "NotYetImplemented";
+        this.flight_number = flight_num;
+        this.origin = flight_origin;
+        this.destination = flight_destination;
+        this.total_seats = num_total_seats;
+        this.available_seats = num_total_seats;
+        this.passenger_names = new HashMap<>();
     }
 }
