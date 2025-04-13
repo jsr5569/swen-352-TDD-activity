@@ -40,6 +40,6 @@ public class Flight {
     }
 
     public boolean isSeatAvailable(){
-        return true;
+        return this.available_seats > 0;
     }
 }
