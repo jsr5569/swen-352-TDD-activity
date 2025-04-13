@@ -16,4 +16,16 @@ class MyOptionalTest {
         MyOptional<?> op = MyOptional.empty();
         assertNotNull(op);
     }
+
+    @Test
+    @DisplayName("Create a non-empty optional")
+    public void testNonEmpty(){
+        MyOptional<Boolean> booleanOp = MyOptional.of(true);
+
+        assertNotNull(booleanOp);
+        assertEquals(MyOptional.class.getSimpleName(), booleanOp.getClass().getSimpleName());
+        assertThrows(NullPointerException.class, () -> {
+            MyOptional.of(null);
+        });
+    }
 }
