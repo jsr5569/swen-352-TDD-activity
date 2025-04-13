@@ -27,6 +27,10 @@ public class Flight {
     private HashMap<String, Integer> passenger_names;
 
     public Flight(String flight_num, String flight_origin, String flight_destination, int num_total_seats){
+        if(flight_num == null || flight_origin == null || flight_destination == null || num_total_seats == 0){
+            throw new NullPointerException("Flight details cannot be null and/or flight must have seats");
+        }
+
         this.flight_number = flight_num;
         this.origin = flight_origin;
         this.destination = flight_destination;
