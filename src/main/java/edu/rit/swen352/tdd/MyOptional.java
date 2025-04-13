@@ -32,8 +32,8 @@ public class MyOptional<T> {
         this.value = value;
     }
 
-    public static <T> MyOptional<?> empty() {
-        return (MyOptional<?>) EMPTY;
+    public static <T> MyOptional<T> empty() {
+        return (MyOptional<T>) EMPTY;
     }
 
     public static <T> MyOptional<T> of(T element) throws NullPointerException{
