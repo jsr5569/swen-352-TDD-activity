@@ -40,6 +40,6 @@ public class Flight {
     }
 
     public boolean isSeatAvailable(){
-        return false;
+        return true;
     }
 }

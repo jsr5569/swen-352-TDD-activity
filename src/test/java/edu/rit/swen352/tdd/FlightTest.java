@@ -25,7 +25,7 @@ public class FlightTest {
     }
 
     @Test
-    @DisplayName("Check that a NullPointerException is thrown when null parameters are supplied")
+    @DisplayName("Check that a seat is available on a non-full flight")
     public void testIsSeatAvailable(){
         Flight f = new Flight("BA134", "Rochester", "Orlando", 5);
         assertTrue(f.isSeatAvailable());
