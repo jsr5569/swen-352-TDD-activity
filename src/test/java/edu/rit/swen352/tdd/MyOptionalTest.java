@@ -107,4 +107,15 @@ class MyOptionalTest {
 
         assertEquals("and", consumerArray[0]);
     }
+
+    @Test
+    @DisplayName("Check that the ifPresent method isn't called if the optional is empty")
+    public void testIfPresentNotCalled() {
+        MyOptional<String> op = MyOptional.empty();
+        final boolean[] consumerArray = new boolean[1];
+
+        op.ifPresent(value -> consumerArray[0] = true);
+
+        assertFalse(consumerArray[0]);
+    }
 }
