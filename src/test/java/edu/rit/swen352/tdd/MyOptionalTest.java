@@ -13,7 +13,7 @@ class MyOptionalTest {
     @Test
     @DisplayName("Create an empty optional")
     public void testEmpty(){
-        MyOptional<String> op = MyOptional.empty();
+        MyOptional<?> op = MyOptional.empty();
         assertNotNull(op);
     }
 }

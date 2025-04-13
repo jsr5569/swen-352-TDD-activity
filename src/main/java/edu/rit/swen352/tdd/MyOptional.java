@@ -32,7 +32,7 @@ public class MyOptional<T> {
         this.value = value;
     }
 
-    public static <T> MyOptional<T> empty() {
-        return null;
+    public static <T> MyOptional<?> empty() {
+        return EMPTY;
     }
 }
