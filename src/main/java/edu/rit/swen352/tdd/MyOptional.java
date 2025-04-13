@@ -36,7 +36,12 @@ public class MyOptional<T> {
         return EMPTY;
     }
 
-    public static <T> MyOptional<T> of(T element){
-        return null;
+    public static <T> MyOptional<T> of(T element) throws NullPointerException{
+        if(element != null){
+            return new MyOptional<>(element);
+        }
+        else{
+            throw new NullPointerException("Element must not be null");
+        }
     }
 }
