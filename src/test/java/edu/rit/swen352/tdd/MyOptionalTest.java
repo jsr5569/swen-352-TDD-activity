@@ -28,4 +28,20 @@ class MyOptionalTest {
             MyOptional.of(null);
         });
     }
+
+    @Test
+    @DisplayName("Create a nullable optional")
+    public void testNullable(){
+        MyOptional<Boolean> booleanOp = MyOptional.ofNullable(true);
+
+        assertNotNull(booleanOp);
+        assertEquals(MyOptional.class.getSimpleName(), booleanOp.getClass().getSimpleName());
+
+        assertDoesNotThrow(() -> {
+            MyOptional.ofNullable(null);
+        });
+        MyOptional<?> emptyOp = MyOptional.ofNullable(null);
+        assertNotNull(emptyOp);
+        assertEquals(MyOptional.class.getSimpleName(), emptyOp.getClass().getSimpleName());
+    }
 }

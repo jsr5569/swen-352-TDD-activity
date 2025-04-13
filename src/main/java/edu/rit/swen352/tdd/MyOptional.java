@@ -44,4 +44,8 @@ public class MyOptional<T> {
             throw new NullPointerException("Element must not be null");
         }
     }
+
+    public static <T> MyOptional<T> ofNullable(T element){
+        return null;
+    }
 }
