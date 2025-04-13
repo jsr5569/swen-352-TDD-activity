@@ -1,6 +1,7 @@
 package edu.rit.swen352.tdd;
 
 import java.util.NoSuchElementException;
+import java.util.function.Function;
 
 /**
  * MyOptional contains a single element or nothing at all.
@@ -67,5 +68,9 @@ public class MyOptional<T> {
         else{
             throw new NoSuchElementException("Can't access element of empty optional");
         }
+    }
+
+    public <U> MyOptional<U> map(Function<? super T, ? extends U> mapper){
+        return null;
     }
 }

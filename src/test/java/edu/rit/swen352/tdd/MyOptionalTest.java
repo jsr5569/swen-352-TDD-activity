@@ -77,4 +77,14 @@ class MyOptionalTest {
 
         assertThrows(NoSuchElementException.class, emptyOp::get);
     }
+
+    @Test
+    @DisplayName("Transform a string by a function with map")
+    public void testMapNonEmptyOptional() {
+        MyOptional<String> op = MyOptional.of("hello");
+        MyOptional<Integer> mappedOp = op.map(String::length);
+
+        assertTrue(mappedOp.isPresent());
+        assertEquals(5, mappedOp.get());
+    }
 }
