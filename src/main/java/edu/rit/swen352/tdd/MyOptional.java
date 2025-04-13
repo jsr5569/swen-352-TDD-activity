@@ -59,4 +59,8 @@ public class MyOptional<T> {
     public boolean isPresent(){
         return this.value != null;
     }
+
+    public T get() throws NoSuchElementException{
+        return null;
+    }
 }

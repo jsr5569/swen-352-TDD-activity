@@ -61,4 +61,13 @@ class MyOptionalTest {
         assertFalse(emptyOp.isPresent());
 
     }
+
+    @Test
+    @DisplayName("Query if the optional is not empty")
+    public void testGetElement(){
+        MyOptional<String> stringOp = MyOptional.of("Random element");
+        MyOptional<?> emptyOp = MyOptional.empty();
+
+        assertEquals("Random element", stringOp.get());
+    }
 }
