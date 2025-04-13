@@ -46,6 +46,11 @@ public class MyOptional<T> {
     }
 
     public static <T> MyOptional<T> ofNullable(T element){
-        return null;
+        if(element == null){
+            return empty();
+        }
+        else{
+            return of(element);
+        }
     }
 }
