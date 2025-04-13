@@ -33,7 +33,7 @@ public class MyOptional<T> {
     }
 
     public static <T> MyOptional<?> empty() {
-        return EMPTY;
+        return (MyOptional<?>) EMPTY;
     }
 
     public static <T> MyOptional<T> of(T element) throws NullPointerException{
