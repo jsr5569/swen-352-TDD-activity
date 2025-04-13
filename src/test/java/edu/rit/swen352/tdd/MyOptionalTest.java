@@ -3,6 +3,8 @@ package edu.rit.swen352.tdd;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -30,13 +32,17 @@ class MyOptionalTest {
     }
 
     @Test
-    @DisplayName("Create a nullable optional")
-    public void testNullable(){
+    @DisplayName("Create an optional with a non-null as the element")
+    public void testNullableNotNull(){
         MyOptional<Boolean> booleanOp = MyOptional.ofNullable(true);
 
         assertNotNull(booleanOp);
         assertEquals(MyOptional.class.getSimpleName(), booleanOp.getClass().getSimpleName());
+    }
 
+    @Test
+    @DisplayName("Create a optional with null as the element")
+    public void testNullableNull(){
         assertDoesNotThrow(() -> {
             MyOptional.ofNullable(null);
         });
