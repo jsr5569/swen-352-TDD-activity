@@ -61,6 +61,11 @@ public class MyOptional<T> {
     }
 
     public T get() throws NoSuchElementException{
-        return this.value;
+        if(this.value != null){
+            return this.value;
+        }
+        else{
+            throw new NoSuchElementException("Can't access element of empty optional");
+        }
     }
 }
