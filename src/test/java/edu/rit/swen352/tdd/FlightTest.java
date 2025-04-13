@@ -30,4 +30,11 @@ public class FlightTest {
         Flight f = new Flight("BA134", "Rochester", "Orlando", 5);
         assertTrue(f.isSeatAvailable());
     }
+
+    @Test
+    @DisplayName("Check that a seat is available on a full flight")
+    public void testIsSeatNotAvailable(){
+        Flight f = new Flight("BA134", "Rochester", "Orlando", 0);
+        assertFalse(f.isSeatAvailable());
+    }
 }
