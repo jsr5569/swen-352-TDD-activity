@@ -96,4 +96,15 @@ class MyOptionalTest {
 
         assertFalse(mappedOp.isPresent());
     }
+
+    @Test
+    @DisplayName("Check that the ifPresent method is called if there is a value in the optional")
+    public void testIfPresentCalled() {
+        MyOptional<String> op = MyOptional.of("Random element");
+        final String[] consumerArray = new String[1];
+
+        op.ifPresent(value -> consumerArray[0] = value.substring(1, 4));
+
+        assertEquals("and", consumerArray[0]);
+    }
 }
