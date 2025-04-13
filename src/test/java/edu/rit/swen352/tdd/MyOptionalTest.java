@@ -87,4 +87,13 @@ class MyOptionalTest {
         assertTrue(mappedOp.isPresent());
         assertEquals(5, mappedOp.get());
     }
+
+    @Test
+    @DisplayName("Check that map doesn't work on an empty option")
+    public void testMapEmptyOptional() {
+        MyOptional<String> op = MyOptional.empty();
+        MyOptional<Integer> mappedOp = op.map(String::length);
+
+        assertFalse(mappedOp.isPresent());
+    }
 }
