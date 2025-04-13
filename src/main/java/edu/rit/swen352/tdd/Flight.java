@@ -38,4 +38,8 @@ public class Flight {
         this.available_seats = num_total_seats;
         this.passenger_names = new HashMap<>();
     }
+
+    public boolean isSeatAvailable(){
+        return false;
+    }
 }

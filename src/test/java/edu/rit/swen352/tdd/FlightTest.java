@@ -23,4 +23,11 @@ public class FlightTest {
             Flight f = new Flight(null, null, null, 0);
         });
     }
+
+    @Test
+    @DisplayName("Check that a NullPointerException is thrown when null parameters are supplied")
+    public void testIsSeatAvailable(){
+        Flight f = new Flight("BA134", "Rochester", "Orlando", 5);
+        assertTrue(f.isSeatAvailable());
+    }
 }
