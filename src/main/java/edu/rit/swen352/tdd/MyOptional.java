@@ -1,5 +1,9 @@
 package edu.rit.swen352.tdd;
 
+import java.util.NoSuchElementException;
+import java.util.function.Consumer;
+import java.util.function.Function;
+
 /**
  * MyOptional contains a single element or nothing at all.
  *
@@ -24,4 +28,59 @@ package edu.rit.swen352.tdd;
  * @param <T> the type of element.
  */
 public class MyOptional<T> {
+    private static final MyOptional<?> EMPTY = new MyOptional<>(null);
+    private final T value;
+
+    // Private constructor to enforce factory use
+    private MyOptional(T value) {
+        this.value = value;
+    }
+
+    public static <T> MyOptional<T> empty() {
+        return (MyOptional<T>) EMPTY;
+    }
+
+    public static <T> MyOptional<T> of(T element) throws NullPointerException{
+        if(element != null){
+            return new MyOptional<>(element);
+        }
+        else{
+            throw new NullPointerException("Element must not be null");
+        }
+    }
+
+    public static <T> MyOptional<T> ofNullable(T element){
+        if(element == null){
+            return empty();
+        }
+        else{
+            return of(element);
+        }
+    }
+
+    public boolean isPresent(){
+        return this.value != null;
+    }
+
+    public T get() throws NoSuchElementException{
+        if(this.value != null){
+            return this.value;
+        }
+        else{
+            throw new NoSuchElementException("Can't access element of empty optional");
+        }
+    }
+
+    public <U> MyOptional<U> map(Function<? super T, ? extends U> mapper){
+        if(!this.isPresent()){
+            return empty();
+        }
+        return ofNullable(mapper.apply(value));
+    }
+
+    public void ifPresent(Consumer<? super T> consumer){
+        if(this.isPresent()){
+            consumer.accept(this.value);
+        }
+    }
 }
