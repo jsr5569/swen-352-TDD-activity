@@ -61,6 +61,6 @@ public class MyOptional<T> {
     }
 
     public T get() throws NoSuchElementException{
-        return null;
+        return this.value;
     }
 }
