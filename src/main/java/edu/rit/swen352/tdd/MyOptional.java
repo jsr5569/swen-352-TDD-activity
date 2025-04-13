@@ -24,4 +24,15 @@ package edu.rit.swen352.tdd;
  * @param <T> the type of element.
  */
 public class MyOptional<T> {
+    private static final MyOptional<?> EMPTY = new MyOptional<>(null);
+    private final T value;
+
+    // Private constructor to enforce factory use
+    private MyOptional(T value) {
+        this.value = value;
+    }
+
+    public static <T> MyOptional<T> empty() {
+        return null;
+    }
 }
