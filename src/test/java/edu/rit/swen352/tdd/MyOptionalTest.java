@@ -53,7 +53,7 @@ class MyOptionalTest {
 
     @Test
     @DisplayName("Query if the optional is not empty")
-    public void testisPresent(){
+    public void testIsPresent(){
         MyOptional<String> stringOp = MyOptional.of("Random element");
         MyOptional<?> emptyOp = MyOptional.empty();
 
@@ -63,11 +63,18 @@ class MyOptionalTest {
     }
 
     @Test
-    @DisplayName("Query if the optional is not empty")
-    public void testGetElement(){
+    @DisplayName("Get the element in the optional")
+    public void testGetElementNotEmpty(){
         MyOptional<String> stringOp = MyOptional.of("Random element");
-        MyOptional<?> emptyOp = MyOptional.empty();
 
         assertEquals("Random element", stringOp.get());
+    }
+
+    @Test
+    @DisplayName("Check that an exception is thrown when accessing the element of an empty optional")
+    public void testGetElementEmpty(){
+        MyOptional<?> emptyOp = MyOptional.empty();
+
+        assertThrows(NoSuchElementException.class, emptyOp::get);
     }
 }
