@@ -71,6 +71,9 @@ public class MyOptional<T> {
     }
 
     public <U> MyOptional<U> map(Function<? super T, ? extends U> mapper){
+        if(!this.isPresent()){
+            return empty();
+        }
         return ofNullable(mapper.apply(value));
     }
 }
