@@ -5,11 +5,6 @@ import java.util.List;
 
 public class ShoeAccount {
 
-    public class Shoe {
-        double size;
-        float price;
-        String condition;
-    }
     List<Shoe> shoes;
 
     public ShoeAccount() {
