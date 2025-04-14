@@ -35,4 +35,12 @@ class MyStackTest {
         stack.push(value);
         assertTrue(stack.array.length > 0);
     }
+
+    @Test
+    public void TestPop() {
+        MyStack<Integer> stack = new MyStack<>();
+        stack.push(5);
+        stack.push(6);
+        assertEquals(6, stack.pop());
+    }
 }
