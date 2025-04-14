@@ -19,18 +19,26 @@ import java.util.List;
  * @param <T> the type of elements in the stack.
  */
 public class MyStack<T> {
-
+    int capacity;
+    int top;
     Object[] array;
 
     public MyStack() {
-        this.array = new Object[16];
+        this.capacity = 16;
+        this.array = new Object[this.capacity];
+        this.top = 0;
     }
 
     public MyStack(int capacity) {
+        this.capacity = capacity;
         this.array = new Object[capacity];
+        this.top = 0;
     }
 
     public void push(T element) throws IllegalStateException{
-        assert false;
+        if (top == this.capacity) {
+            throw new IllegalStateException("Stack is filled.");
+        }
+        this.array[top++] = element;
     }
 }
