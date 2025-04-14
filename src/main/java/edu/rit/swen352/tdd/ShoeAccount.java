@@ -20,6 +20,6 @@ public class ShoeAccount {
     }
 
     public void reduceShoePrice(Shoe shoe, double price) {
-        return;
+        shoe.price = price;
     }
 }
