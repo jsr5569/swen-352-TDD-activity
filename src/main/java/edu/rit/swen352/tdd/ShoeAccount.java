@@ -12,7 +12,7 @@ public class ShoeAccount {
     }
 
     public void addShoe(Shoe shoe) {
-        return;
+        shoes.add(shoe);
     }
 
 }
