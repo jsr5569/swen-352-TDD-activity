@@ -20,13 +20,17 @@ import java.util.List;
  */
 public class MyStack<T> {
 
-    int capacity;
+    Object[] array;
 
     public MyStack() {
-        this.capacity = 16;
+        this.array = new Object[16];
     }
 
     public MyStack(int capacity) {
-        this.capacity = capacity;
+        this.array = new Object[capacity];
+    }
+
+    public void push(T element) throws IllegalStateException{
+        assert false;
     }
 }

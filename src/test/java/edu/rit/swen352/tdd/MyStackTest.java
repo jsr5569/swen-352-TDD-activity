@@ -17,12 +17,22 @@ class MyStackTest {
     @Test
     public void TestConstructorDefaultCapacity() {
         MyStack stack = new MyStack<>();
-        assertEquals(16, stack.capacity);
+        int capacity = stack.array.length;
+        assertEquals(16, capacity);
     }
 
     @Test
     public void TestConstructorSpecificCapacity() {
         MyStack stack = new MyStack<>(10);
-        assertEquals(10, stack.capacity);
+        int capacity = stack.array.length;
+        assertEquals(10, capacity);
+    }
+
+    @Test
+    public void TestPush() {
+        MyStack<Integer> stack = new MyStack<>();
+        int value = 5;
+        stack.push(value);
+        assertTrue(stack.array.length > 0);
     }
 }
