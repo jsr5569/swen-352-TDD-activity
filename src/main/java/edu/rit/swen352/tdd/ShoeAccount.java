@@ -16,6 +16,6 @@ public class ShoeAccount {
     }
 
     public void removeShoe(Shoe shoe) {
-        return;
+        shoes.remove(shoe);
     }
 }
