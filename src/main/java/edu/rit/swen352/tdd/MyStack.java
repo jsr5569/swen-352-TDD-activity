@@ -52,4 +52,8 @@ public class MyStack<T> {
         array[top] = null;
         return value;
     }
+
+    public boolean isEmpty() {
+        return false;
+    }
 }

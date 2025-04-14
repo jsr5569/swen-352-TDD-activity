@@ -43,4 +43,10 @@ class MyStackTest {
         stack.push(6);
         assertEquals(6, stack.pop());
     }
+
+    @Test
+    public void TestIsEmpty() {
+        MyStack<Integer> stack = new MyStack<>();
+        assertTrue(stack.isEmpty());
+    }
 }
