@@ -15,4 +15,7 @@ public class ShoeAccount {
         shoes.add(shoe);
     }
 
+    public void removeShoe(Shoe shoe) {
+        return;
+    }
 }

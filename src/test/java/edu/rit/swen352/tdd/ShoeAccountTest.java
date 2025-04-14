@@ -28,4 +28,13 @@ public class ShoeAccountTest {
         account.addShoe(shoe);
         assertTrue(!account.shoes.isEmpty());
     }
+
+    @Test
+    public void TestRemoveShoeFromAccount() {
+        ShoeAccount account = new ShoeAccount();
+        Shoe shoe = new Shoe(9.5, 109.99, "Very Good");
+        account.addShoe(shoe);
+        account.removeShoe(shoe);
+        assertEquals(0, account.shoes.size());
+    }
 }
