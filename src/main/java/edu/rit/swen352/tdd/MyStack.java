@@ -54,6 +54,6 @@ public class MyStack<T> {
     }
 
     public boolean isEmpty() {
-        return false;
+        return (top == 0);
     }
 }
