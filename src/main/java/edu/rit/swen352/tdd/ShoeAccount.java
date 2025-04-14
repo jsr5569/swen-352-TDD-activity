@@ -11,4 +11,8 @@ public class ShoeAccount {
         this.shoes = new ArrayList<>();
     }
 
+    public void addShoe(Shoe shoe) {
+        return;
+    }
+
 }
