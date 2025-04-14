@@ -37,4 +37,13 @@ public class ShoeAccountTest {
         account.removeShoe(shoe);
         assertEquals(0, account.shoes.size());
     }
+
+    @Test
+    public void TestReduceShoePrice() {
+        ShoeAccount account = new ShoeAccount();
+        Shoe shoe = new Shoe(9.5, 109.99, "Very Good");
+        account.addShoe(shoe);
+        account.reduceShoePrice(shoe, 99.99);
+        assertEquals(99.99, shoe.price);
+    }
 }

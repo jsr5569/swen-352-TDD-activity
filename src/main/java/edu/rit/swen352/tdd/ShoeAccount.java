@@ -18,4 +18,8 @@ public class ShoeAccount {
     public void removeShoe(Shoe shoe) {
         shoes.remove(shoe);
     }
+
+    public void reduceShoePrice(Shoe shoe, double price) {
+        return;
+    }
 }
