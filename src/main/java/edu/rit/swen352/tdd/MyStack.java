@@ -44,6 +44,12 @@ public class MyStack<T> {
     }
 
     public T pop() throws NoSuchElementException {
-        return null;
+        if (top == 0) {
+            throw new NoSuchElementException("Stack is empty.");
+        }
+        top--;
+        T value = (T) this.array[top];
+        array[top] = null;
+        return value;
     }
 }
