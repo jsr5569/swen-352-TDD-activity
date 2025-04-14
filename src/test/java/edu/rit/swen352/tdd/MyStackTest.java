@@ -49,4 +49,10 @@ class MyStackTest {
         MyStack<Integer> stack = new MyStack<>();
         assertTrue(stack.isEmpty());
     }
+
+    @Test
+    public void TestSize() {
+        MyStack<Integer> stack = new MyStack<>();
+        assertEquals(0, stack.size());
+    }
 }
