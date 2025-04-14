@@ -54,5 +54,8 @@ class MyStackTest {
     public void TestSize() {
         MyStack<Integer> stack = new MyStack<>();
         assertEquals(0, stack.size());
+        stack.push(3);
+        stack.push(5);
+        assertEquals(2, stack.size());
     }
 }
